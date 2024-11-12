@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List by MD colab</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header Section -->
+    <header class="header">
+            <h1>To-Do List</h1>
+      <div class="clock" id="clock">00:00:00</div>
+    </header>
+    
+    <!-- Main Body Section -->
+    <main class="main-body">
+      
+      <!-- Task Input Section (Hidden by default) -->
+      <div id="inputSection" class="input-section">
+        <input type="text" id="taskInput" placeholder="Add Task..." required>
+        <div class="timer-inputs">
+          <input type="number" id="hoursInput" placeholder="Hrs" min="0">
+          <input type="number" id="minutesInput" placeholder="Min" min="0">
+          <input type="number" id="secondsInput" placeholder="Sec" min="0">
+        </div>
+        <button id="addTaskBtn">Done</button>
+      </div>
+      <!-- Task List Section -->
+      <ul id="taskList" class="task-list"></ul>
+    </main>
+    
+    <!-- Bottom Navigation Section -->
+    <nav class="bottom-nav">
+      <button id="addIcon" class="add-icon"><img src="plus.png" alt="plus" width="50px"></button>
+    </nav>
+    
+    <!-- Audio for Timer Notification -->
+    <audio id="bellSound" src="bell.mp3" preload="auto"></audio>
+  </div>
+  <script src="script.js"></script>
+  <script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("/service-worker.js");
+    });
+  }
+</script>
+
+</body>
+</html>
